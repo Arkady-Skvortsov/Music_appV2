@@ -118,7 +118,7 @@ export default new Vuex.Store({
      },
 
      SET_DELETE_ARRAY(state, del2) {
-       state.deleteArr.unshift(del2) //del2
+       state.deleteArr.unshift(del2) 
      },
 
      CHANGE_AUTH(state, auth) {
@@ -154,8 +154,7 @@ export default new Vuex.Store({
      },
 
      SET_SOUNDTRACK2(state, inform2){
-       // state.soundtrack2 = inform2 // Да, работает, но только на одном саундтреке и все, сейчас попробую что-нибудь другое
-       state.soundtrack2 = inform2 //Ок, если это будет объект.. С объектом работает, но только один раз
+       state.soundtrack2 = inform2
      }
   },
 
@@ -259,7 +258,7 @@ export default new Vuex.Store({
       commit('SET_SOUNDTRACK2', inform2)
     },
 
-    SIGNUP({commit}, reg) { //Регистрация 
+    SIGNUP({commit}, reg) {  
         firebase.auth().createUserWithEmailAndPassword(reg.email, reg.password)
            .then((user) => {
              commit('SET_PROCESSING', true)
@@ -271,7 +270,7 @@ export default new Vuex.Store({
            });
     },
 
-    SIGNIN({commit}, aut) { //Вход
+    SIGNIN({commit}, aut) { 
       firebase.auth().signInWithEmailAndPassword(aut.email, aut.password)
           .then((user) => {
              commit('SET_PROCESSING', true)
@@ -283,17 +282,17 @@ export default new Vuex.Store({
           });
     },
 
-    SIGNOUT() { //Функция, которая отвечает за выход пользователя из аккаунта 
+    SIGNOUT() {
       firebase.auth().currentUser.delete()    
     },
 
-    SET_CHANGED({commit}, payload) { //Следит за общим состоянием(зарегистрирован пользователь или нет)... Причем всегда 
+    SET_CHANGED({commit}, payload) { 
       commit('SET_USER', {uid: payload.uid, email: payload.email, password: payload.password})
     }
   },
 
   getters: {
-  	SOUNDTRACKS: (state) => state.soundtracks,  //Вот так писать - правильно!. Не надо гнаться за правильностью
+  	SOUNDTRACKS: (state) => state.soundtracks,  
 
     SEARCHVALUE: (state) => state.searchValue,
 

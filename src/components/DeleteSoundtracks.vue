@@ -19,9 +19,7 @@
 <script>
 	export default {
 		data() {
-			return {
-				txt: "Delete", // Just)
-                
+			return {                
         DeleteArray: []
 		 	}
 		},
